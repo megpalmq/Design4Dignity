@@ -1,0 +1,170 @@
+<section id="about" class="about-section">
+  <div class="container2">
+    <img src="/assets/images/group3.png" class="aboutCollabImg" alt="">
+    <section class="bonerCenter">
+      <h2>Guest Collaborators </h2>
+      <div class="logos ">
+      <div class="logo1"></div>
+      <div class="logo2"></div>
+    </div>
+    
+    </section>
+  </div>
+  <div class="container">
+  <div class="about-content1">
+      
+        <h2>Indiana</h2>
+      <div class="text-content">
+      <p>
+          Food insecurity is a pressing issue affecting many residents of
+          Indiana, particularly in rural and urban areas. Despite the state's
+          agricultural wealth, a significant number of Hoosiers face challenges
+          in accessing nutritious, affordable food.
+          <br /><br />
+          This issue is often exacerbated by high poverty rates, unemployment,
+          and a lack of access to food retailers in certain regions, resulting
+          in food deserts. The elderly population is especially vulnerable, with
+          many facing difficulties in obtaining fresh produce, largely due to
+          limited mobility and fixed incomes. In cities like Indianapolis, Fort
+          Wayne, and Evansville, low-income households struggle to meet basic
+          nutritional needs, leading to poor health outcomes and increased
+          reliance on food pantries and community food banks.<br /><br />
+
+          Furthermore, food insecurity in Indiana has a significant ripple
+          effect, impacting children's education, physical and mental
+          development, and contributing to the cycle of poverty.
+          <br>
+          <br>
+          <span class="tiny">Source: State of Aging Central Indiana</span>
+        </p>
+        
+        </div>
+        
+      </div>
+      
+      <div class="indyGraphic"></div>
+    </div>
+  </div>
+
+<div class="container3">
+  <section id="food-insecurity" class="food-insecurity-section ">
+    <div class="containerMap">
+      <div class="Tcontent">
+      <h2 class="sec-title" >Map of Food Insecurity</h2>
+      <p class="pclass">
+        Food insecurity affects vulnerable populations across Indiana and Korea,
+        particularly the elderly and underserved communities. By focusing on these
+        regions, our collaboration highlights the importance of addressing food
+        access disparities and fostering community-driven solutions.
+      </p>
+      </div>
+      <div id="food-insecurity-map" class="map-container">
+        <div id="map"></div>
+        <p class="map-instructions">
+          Tap the dots on the map to learn more about food insecurity hotspots.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="button-container">
+<a href="#projects" class="seeMore">
+  See the Deliverables<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+</section>
+<script>
+  function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 6,
+      center: { lat: 40.0, lng: -86.0 }
+    });
+
+    const locations = [
+      {
+        lat: 39.7684,
+        lng: -86.1581,
+        title: "Indianapolis, IN",
+        description:
+          "Indianapolis, the state's capital, faces high levels of food insecurity in both urban and suburban areas, especially among lower-income households.",
+      },
+      {
+        lat: 41.0793,
+        lng: -85.1394,
+        title: "Fort Wayne, IN",
+        description:
+          "Fort Wayne has experienced rising food insecurity due to high poverty rates and lack of access to fresh food in many neighborhoods.",
+      },
+      {
+        lat: 37.9716,
+        lng: -87.5711,
+        title: "Evansville, IN",
+        description:
+          "In Evansville, food insecurity is concentrated in low-income neighborhoods, where families struggle to access affordable, nutritious food.",
+      },
+      {
+        lat: 41.5934,
+        lng: -87.3462,
+        title: "Gary, IN",
+        description:
+          "Gary, a city with high poverty and unemployment rates, faces severe food insecurity, particularly in its most impoverished neighborhoods.",
+      },
+      {
+        lat: 41.7036,
+        lng: -86.25,
+        title: "South Bend, IN",
+        description:
+          "South Bend struggles with food insecurity, especially in inner-city areas where many families have limited access to fresh produce and affordable grocery stores.",
+      },
+      {
+        lat: 40.1921,
+        lng: -85.3963,
+        title: "Muncie, IN",
+        description:
+          "Muncie has notable food deserts, impacting lower-income residents who lack reliable access to affordable, nutritious food.",
+      },
+      {
+        lat: 39.1658,
+        lng: -86.5264,
+        title: "Bloomington, IN",
+        description:
+          "While Bloomington is home to Indiana University, the city faces food insecurity challenges for its low-income residents, especially elderly and disabled individuals.",
+      },
+      {
+        lat: 37.5665,
+        lng: 126.978,
+        title: "Seoul, Korea",
+        description:
+          "In Seoul, despite its modernity, certain underprivileged areas face food insecurity due to rising costs and lack of proper access to food for vulnerable populations.",
+      },
+      {
+        lat: 35.1796,
+        lng: 129.0756,
+        title: "Busan, Korea",
+        description:
+          "Busan, a major port city, struggles with food insecurity among elderly populations living in poverty, affecting their ability to access fresh, affordable food.",
+      },
+    ];
+
+    locations.forEach((location) => {
+      const marker = new google.maps.Marker({
+        position: { lat: location.lat, lng: location.lng },
+        map: map,
+        title: location.title,
+      });
+
+      const infoWindow = new google.maps.InfoWindow({
+        content: `<h3>${location.title}</h3><p>${location.description}</p>`,
+      });
+
+      marker.addListener("click", function () {
+        infoWindow.open(map, marker);
+      });
+    });
+  }
+
+  const script = document.createElement("script");
+  script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBvHy615YwSL59eTlG8mfbF83t6uEWzPMk&callback=initMap`;
+  script.async = true;
+  document.head.appendChild(script);
+</script>
